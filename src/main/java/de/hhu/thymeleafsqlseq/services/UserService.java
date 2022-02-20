@@ -3,11 +3,21 @@ package de.hhu.thymeleafsqlseq.services;
 
 import de.hhu.thymeleafsqlseq.domain.User;
 import de.hhu.thymeleafsqlseq.dto.UserDto;
+import de.hhu.thymeleafsqlseq.repositories.UserRepository;
 
-public interface UserService{
+public class UserService{
+    private UserRepository repository;
 
-    User save(UserDto userDto);
-    User findByUsername(String username);
+    public UserService(UserRepository repository) {
+        this.repository = repository;
+    }
+
+    public void saveUser(UserDto userDto){
+        repository.save(userDto);
+    }
+    User findByEmail(String email){
+        return repository.findByEmail(email);
+    };
 }
 
 
