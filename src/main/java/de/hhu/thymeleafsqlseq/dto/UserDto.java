@@ -1,6 +1,5 @@
 package de.hhu.thymeleafsqlseq.dto;
 
-import de.hhu.thymeleafsqlseq.domain.User;
 import org.springframework.data.annotation.Id;
 
 public record UserDto (

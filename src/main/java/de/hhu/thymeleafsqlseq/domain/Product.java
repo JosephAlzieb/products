@@ -11,13 +11,13 @@ public class Product {
     private ProductType productType;
 
 
-    public Product(Long id, String brand, float price, boolean isDeleted, String name, ProductType productType) {
+    public Product(Long id, String brand, float price, boolean isDeleted, String name, String productType) {
         this.id = id;
         this.brand = brand;
         this.price = price;
         this.isDeleted = isDeleted ;
         this.name = name;
-        this.productType = productType;
+        this.productType = new ProductType(productType);
     }
 
 

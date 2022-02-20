@@ -11,13 +11,13 @@ public class User {
     private Boolean active;
     private Role role;
 
-    public User(String firstName, String lastName, String email, String password, Role role) {
+    public User(String firstName, String lastName, String email, String password, String role) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.role = role;
+        this.role = Role.valueOf(role);
         this.active=true;
     }
 
@@ -72,11 +72,11 @@ public class User {
         this.active=active;
     }
 
-    public void setRoles(Role role){
-        this.role = role;
+    public void setRoles(String role){
+        this.role = Role.valueOf(role);
     }
-    public Role getRoles(){
-        return this.role;
+    public String getRoles(){
+        return this.role.name();
     }
 
 }
