@@ -2,9 +2,10 @@ package de.hhu.thymeleafsqlseq.services;
 
 
 import de.hhu.thymeleafsqlseq.domain.User;
-import de.hhu.thymeleafsqlseq.dto.UserDto;
 import de.hhu.thymeleafsqlseq.repositories.UserRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService{
     private UserRepository repository;
 
@@ -15,7 +16,7 @@ public class UserService{
     public void saveUser(User user){
         repository.save(user);
     }
-    User findByEmail(String email){
+    public User findByEmail(String email){
         return repository.findByEmail(email);
     };
 }

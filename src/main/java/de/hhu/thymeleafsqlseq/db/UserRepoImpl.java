@@ -3,7 +3,9 @@ package de.hhu.thymeleafsqlseq.db;
 import de.hhu.thymeleafsqlseq.domain.User;
 import de.hhu.thymeleafsqlseq.dto.UserDto;
 import de.hhu.thymeleafsqlseq.repositories.UserRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserRepoImpl implements UserRepository {
 
     private UserRepoDau repoDau;
