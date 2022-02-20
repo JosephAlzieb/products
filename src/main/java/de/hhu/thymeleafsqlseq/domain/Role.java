@@ -1,5 +1,5 @@
 package de.hhu.thymeleafsqlseq.domain;
 
-enum Role {
+public enum Role {
    User, Admin,
 }
