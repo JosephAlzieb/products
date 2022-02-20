@@ -12,8 +12,8 @@ public class UserService{
         this.repository = repository;
     }
 
-    public void saveUser(UserDto userDto){
-        repository.save(userDto);
+    public void saveUser(User user){
+        repository.save(user);
     }
     User findByEmail(String email){
         return repository.findByEmail(email);

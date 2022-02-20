@@ -7,5 +7,5 @@ import de.hhu.thymeleafsqlseq.dto.UserDto;
 public interface UserRepository {
     User findByEmail(String email);
 
-    void save(UserDto userDto);
+    void save(User user);
 }
