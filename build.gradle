@@ -12,27 +12,28 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    set('testcontainersVersion', "1.16.2")
-}
+//ext {
+//    set('testcontainersVersion', "1.16.2")
+//}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.flywaydb:flyway-core'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.h2database:h2'
+//    runtimeOnly 'com.h2database:h2'
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.testcontainers:junit-jupiter'
+//    testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:postgresql'
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
-    }
-}
+//dependencyManagement {
+//    imports {
+//        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+//    }
+//}
 
 tasks.named('test') {
     useJUnitPlatform()

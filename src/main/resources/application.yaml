@@ -2,10 +2,10 @@ spring:
   flyway:
     schemas: geschaeft
     create-schemas: true
-    url: jdbc:postgres://localhost:5432/
+    url: jdbc:postgresql://localhost:5432/
     user: propra2
     password: propra2
   datasource:
-    url: jdbc:postgres://localhost:5432/geschaeft
+    url: jdbc:postgresql://localhost:5432/
     username: propra2
     password: propra2
