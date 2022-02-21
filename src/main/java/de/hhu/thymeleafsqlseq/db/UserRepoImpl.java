@@ -17,13 +17,23 @@ public class UserRepoImpl implements UserRepository {
     @Override
     public User findByEmail(String email) {
         UserDto dto = repoDau.findUserByEmail(email);
-        User user = new User(dto.firstName(), dto.lastName(), dto.email(),dto.password(), dto.role());
+        User user = getUser(dto);
+        return user;
+    }
+
+    private User getUser(UserDto dto) {
+        User user = new User(dto.firstName(), dto.lastName(), dto.email(), dto.password(), dto.role());
         return user;
     }
 
     @Override
     public void save(User user) {
-        UserDto userDto = new UserDto(null, user.getFirstName(),user.getLastName(), user.getEmail(),user.getPassword(),user.getActive(), user.getRoles());
+        UserDto userDto = getUserDto(user);
         repoDau.save(userDto);
+    }
+
+    private UserDto getUserDto(User user) {
+        UserDto userDto = new UserDto(null, user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword(), user.getActive(), user.getRoles());
+        return userDto;
     }
 }
