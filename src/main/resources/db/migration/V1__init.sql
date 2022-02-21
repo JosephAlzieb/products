@@ -1,27 +1,26 @@
-create table "user"
+create table user
 (
-    id serial
-        constraint user_pk
-            primary key,
-    "firstName" text not null,
-    "lastName" text not null,
+    id int auto_increment,
+    firstname text not null,
+    lastname text not null,
     email text not null,
-    password int not null,
-    active bool not null,
-    role text not null
+    password text not null,
+    active boolean not null,
+    role text not null,
+    constraint user_pk
+        primary key (id)
 );
+
 
 
 create table product
 (
-    id serial
-        constraint product_pk
-            primary key,
+    id int auto_increment,
     brand text not null,
     price decimal(8,2) not null,
-    "isDeleted" bool not null,
+    isdeleted boolean not null,
     name text not null,
-    "productType" text not null
+    producttype text not null,
+    constraint product_pk
+        primary key (id)
 );
-
-

@@ -1,9 +1,10 @@
-version: "3.7"
+version: "3.1"
 services:
-  db:
-    image: postgres:14.1-alpine
+  database:
+    image: mariadb:10.5
     ports:
-      - "5432:5432"
+      - "3307:3306"
+    volumes:
+      - ./data:/var/lib/mysql
     environment:
-      POSTGRES_USER: propra2
-      POSTGRES_PASSWORD: propra2
+      - "MYSQL_ROOT_PASSWORD=iamgroot"
