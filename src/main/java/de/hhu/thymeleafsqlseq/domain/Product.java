@@ -11,11 +11,10 @@ public class Product {
     private ProductType productType;
 
 
-    public Product(Long id, String brand, float price, boolean isDeleted, String name, String productType) {
-        this.id = id;
+    public Product(String brand, float price, String name, String productType) {
         this.brand = brand;
         this.price = price;
-        this.isDeleted = isDeleted ;
+        this.isDeleted = false ;
         this.name = name;
         this.productType = new ProductType(productType);
     }
@@ -68,6 +67,10 @@ public class Product {
     }
     public void setIsDeleted(boolean isDeleted){
         this.isDeleted=isDeleted;
+    }
+
+    public String getProductType() {
+        return productType.name();
     }
 
 }
