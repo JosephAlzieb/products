@@ -1,6 +1,8 @@
 package de.hhu.thymeleafsqlseq.domain;
 
 
+import java.util.Locale;
+
 public class User {
 
     private Long id;
@@ -16,7 +18,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.role = Role.valueOf(role);
+        this.role = Role.valueOf(role.toUpperCase(Locale.ROOT));
         this.active=true;
     }
 
@@ -72,7 +74,7 @@ public class User {
     }
 
     public void setRoles(String role){
-        this.role = Role.valueOf(role);
+        this.role = Role.valueOf(role.toUpperCase());
     }
     public String getRoles(){
         return this.role.name();
