@@ -3,6 +3,7 @@ package de.hhu.thymeleafsqlseq.archunit;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.library.GeneralCodingRules;
 import de.hhu.thymeleafsqlseq.ThymeleafSqlSeqApplication;
 import org.springframework.stereotype.Controller;
 
@@ -17,4 +18,7 @@ public class ArchLawsTest {
             .resideOutsideOfPackages("..controllers..")
             .should()
             .notBeAnnotatedWith(Controller.class);
+
+    @ArchTest
+    static final ArchRule No_FIELD_INJECTION = GeneralCodingRules.NO_CLASSES_SHOULD_USE_FIELD_INJECTION;
 }
