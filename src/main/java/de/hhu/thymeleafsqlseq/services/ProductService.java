@@ -5,6 +5,8 @@ import de.hhu.thymeleafsqlseq.domain.Product;
 import de.hhu.thymeleafsqlseq.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
     private ProductRepository repository;
@@ -19,5 +21,9 @@ public class ProductService {
 
     public void saveProduct (Product product){
         repository.saveProduct(product);
+    }
+
+    public List<Product> getAllProducts (){
+        return repository.findAllProducts();
     }
 }

@@ -5,6 +5,9 @@ import de.hhu.thymeleafsqlseq.dto.ProductDto;
 import de.hhu.thymeleafsqlseq.repositories.ProductRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class ProductRepoImpl implements ProductRepository {
     
@@ -25,6 +28,11 @@ public class ProductRepoImpl implements ProductRepository {
     public void saveProduct(Product product) {
         ProductDto dto = getDto(product);
         repoDau.save(dto);
+    }
+
+    @Override
+    public List<Product> findAllProducts() {
+        return repoDau.findAll().stream().map(dto -> getPoduct(dto)).collect(Collectors.toList());
     }
 
     private ProductDto getDto(Product product) {
