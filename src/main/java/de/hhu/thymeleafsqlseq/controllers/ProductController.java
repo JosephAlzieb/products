@@ -28,10 +28,15 @@ public class ProductController {
         return "listProducts";
     }
 
+    @GetMapping("/save")
+    public String getFormToSaveProducts(){
+        return "saveProduct";
+    }
+
     @PostMapping("/save")
     public String saveProduct(@ModelAttribute("product") Product product, Model model){
         service.saveProduct(product);
-        return "redirect:/";
+        return "redirect:/product/list";
     }
 
     @ModelAttribute("product")
