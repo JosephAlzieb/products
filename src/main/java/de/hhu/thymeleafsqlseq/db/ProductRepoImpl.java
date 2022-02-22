@@ -39,9 +39,10 @@ public class ProductRepoImpl implements ProductRepository {
         return new ProductDto(null, product.getBrand(), product.getPrice(), product.getIsDeleted(), product.getName(), product.getProductType());
     }
 
+
     private Product getPoduct(ProductDto dto) {
-        Product product = new Product(dto.brand(), dto.price(), dto.name(), dto.productType());
-        product.setId(dto.id());
-        return product;
+         Product product = new Product(dto.brand(), dto.price(), dto.name(), dto.productType());
+         product.setId(dto.id());
+         return product;
     }
 }
