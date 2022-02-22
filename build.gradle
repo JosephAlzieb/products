@@ -17,6 +17,7 @@ ext {
 }
 
 dependencies {
+    testImplementation 'com.tngtech.archunit:archunit-junit5-engine:0.22.0'
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
