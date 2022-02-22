@@ -40,6 +40,8 @@ public class ProductRepoImpl implements ProductRepository {
     }
 
     private Product getPoduct(ProductDto dto) {
-        return new Product( dto.brand(), dto.price(), dto.name(), dto.productType());
+        Product product = new Product(dto.brand(), dto.price(), dto.name(), dto.productType());
+        product.setId(dto.id());
+        return product;
     }
 }
