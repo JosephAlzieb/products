@@ -10,6 +10,8 @@ public class Product {
     private String name;
     private ProductType productType;
 
+    public Product() {
+    }
 
     public Product(String brand, float price, String name, String productType) {
         this.brand = brand;
@@ -28,14 +30,6 @@ public class Product {
         this.id=id;
     }
 
-
-    public ProductType getProductTypeId(){
-        return this.productType;
-    }
-
-    public void setProductTypeId(ProductType productType){
-        this.productType=productType;
-    }
 
     public String getName(){
         return this.name;
@@ -73,4 +67,18 @@ public class Product {
         return productType.name();
     }
 
+    public void setProductType(String productType) {
+        this.productType = new ProductType(productType);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+               ", brand='" + brand + '\'' +
+               ", price=" + price +
+               ", isDeleted=" + isDeleted +
+               ", name='" + name + '\'' +
+               ", productType=" + productType +
+               '}';
+    }
 }
