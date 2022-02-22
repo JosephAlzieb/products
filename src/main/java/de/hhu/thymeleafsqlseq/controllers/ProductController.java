@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/product")
 public class ProductController {
@@ -20,8 +22,10 @@ public class ProductController {
     }
 
     @GetMapping("/list")
-    public String getProducts() {
-        return "saveProduct";
+    public String getProducts(Model model) {
+        List<Product> allProducts = service.getAllProducts();
+        model.addAttribute("listProducts", allProducts);
+        return "listProducts";
     }
 
     @PostMapping("/save")
