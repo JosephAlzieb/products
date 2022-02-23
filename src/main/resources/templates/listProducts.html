@@ -59,6 +59,13 @@
             </tbody>
           </table>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="alert alert-danger" role="alert" id="error-message" th:if="${error} != null" th:text="${error}">
+        A simple danger alert—check it out!
+      </div>
     </section>
   </main>
 </div>
