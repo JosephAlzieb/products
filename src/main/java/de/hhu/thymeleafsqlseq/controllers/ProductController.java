@@ -4,10 +4,7 @@ import de.hhu.thymeleafsqlseq.domain.Product;
 import de.hhu.thymeleafsqlseq.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,6 +33,12 @@ public class ProductController {
     @PostMapping("/save")
     public String saveProduct(@ModelAttribute("product") Product product, Model model){
         service.saveProduct(product);
+        return "redirect:/product/list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable("id") Long id){
+        service.deleteProduct(id);
         return "redirect:/product/list";
     }
 
