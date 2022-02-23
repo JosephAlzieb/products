@@ -40,10 +40,13 @@ public class ProductController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") Long id, @AuthenticationPrincipal OAuth2User principal, Model model ){
-        if(principal.getAuthorities().contains("ROLE_ADMIN")){
-            model.addAttribute("id", id);
-            return "redirect:/product/deleteProduct/{id}";
+    public String delete(@PathVariable("id") Long id,
+                         @AuthenticationPrincipal OAuth2User principal,
+                         Model model,
+                         RedirectAttributes redirectAttributes) {
+        SimpleGrantedAuthority admin = new SimpleGrantedAuthority("ROLE_ADMIN");
+        if (principal.getAuthorities().contains(admin)) {
+            return "redirect:/product/deleteProduct/"+id;
         }
         String msg = "you are not an Admin, so you can not delete anything";
         redirectAttributes.addFlashAttribute("error", msg);
