@@ -8,3 +8,8 @@ services:
       - ./data:/var/lib/mysql
     environment:
       - "MYSQL_ROOT_PASSWORD=iamgroot"
+  application:
+    # Konfiguration der Anwendung
+    environment:
+      - "CLIENT_ID=${CLIENT_ID}"
+      - "CLIENT_SECRET=${CLIENT_SECRET}"
