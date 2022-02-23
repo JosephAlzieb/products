@@ -40,7 +40,12 @@
                 <div th:unless="${user}">
                     <a href="/oauth2/authorization/github">Login using GitHub</a>
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                <br>
+                <br>
+                <form th:action="@{/logout}" method="post">
+                    <input class="btn btn-dark" type="submit" value="Logout">
+                </form>
 
                 </div>
             </div>
