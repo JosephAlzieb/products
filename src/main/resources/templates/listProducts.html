@@ -9,6 +9,20 @@
     a:link {
       text-decoration:none;
     }
+
+    body {
+      background-image: url('https://th.bing.com/th/id/R.f61ef4382170eabeda0d1ccc8b4c2830?rik=ka%2beR27iMTyLjA&riu=http%3a%2f%2fwww.relational-technologies.com%2fassets%2fimg%2fabout-us.jpg&ehk=NHxM07Jx1hND80g7MsW9J3IpM839c5XwIrm1VtVWITg%3d&risl=&pid=ImgRaw&r=0');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(5px);
+      border-radius: 25px;
+    }
+
   </style>
 
 
@@ -31,7 +45,7 @@
     <section class="bg-light">
       <h2>your products</h2>
 
-      <div class="row">
+      <div class="row container pt-3">
         <div class="col-sm-12">
           <table id="products" class="table table-bordered table-striped dataTable" role="grid"
                  aria-describedby="my Products table">
@@ -41,7 +55,7 @@
               <th>Product Type</th>
               <th>Name</th>
               <th>Brand</th>
-              <th>Price</th>
+              <th>Price in EUR</th>
               <th>Actions</th>
             </tr>
             </thead>
