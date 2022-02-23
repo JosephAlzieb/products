@@ -18,6 +18,8 @@
             <h2>your products</h2>
             <form method="post" th:object="${product}" th:action="@{/product/save}">
 
+                <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="brand" placeholder="PRADA" th:field="*{brand}">
                     <label for="brand">Brand</label>
