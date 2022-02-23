@@ -46,9 +46,8 @@ public class ProductController {
             return "redirect:/product/deleteProduct/{id}";
         }
         String msg = "you are not an Admin, so you can not delete anything";
-        model.addAttribute("listProducts", service.getAllProducts());
-        model.addAttribute("error", msg);
-        return"listProducts";
+        redirectAttributes.addFlashAttribute("error", msg);
+        return "redirect:/product/list";
     }
 
     @Secured("ROLE_ADMIN")
