@@ -48,20 +48,22 @@ public class ProductController {
         if (principal.getAuthorities().contains(admin)) {
             return "redirect:/product/deleteProduct/"+id;
         }
-        String msg = "you are not an Admin, so you can not delete anything";
-        redirectAttributes.addFlashAttribute("error", msg);
-        return "redirect:/product/list";
+        else {
+            String msg = "you are not an Admin, so you can not delete anything";
+            redirectAttributes.addFlashAttribute("error", msg);
+            return "redirect:/product/list";
+        }
     }
 
     @Secured("ROLE_ADMIN")
     @GetMapping("/deleteProduct/{id}")
-    public String deleteProduct(@PathVariable("id") Long id, @AuthenticationPrincipal OAuth2User principal){
-        if(principal.getAuthorities().contains("ROLE_ADMIN")){
-            service.deleteProduct(id);
-            return "redirect:/product/list";
-        }
-
-        return"redirect:/product/list";
+    public String deleteProduct(@PathVariable("id") Long id,
+                                @AuthenticationPrincipal OAuth2User principal,
+                                RedirectAttributes redirectAttributes) {
+        service.deleteProduct(id);
+        String msg = "Product is now deleted";
+        redirectAttributes.addFlashAttribute("success", msg);
+        return "redirect:/product/list";
     }
 
     @ModelAttribute("product")
