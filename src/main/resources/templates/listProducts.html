@@ -21,9 +21,9 @@
     <h1>your created Products</h1>
     <div class="container-lg">
       <h3>you want to create another products... then </h3>
-      <a href="http://localhost:8080/product/save" class="link-secondary">
-        <button type="button" class="btn btn-outline-dark">create a new product</button>
-      </a>
+
+      <a href="http://localhost:8080/product/save" class="btn btn-outline-dark"> create a new product </a>
+
     </div>
   </header>
   <hr class="mt-5 mb-5">
@@ -52,10 +52,9 @@
               <td th:text="${product.name}">Name</td>
               <td th:text="${product.brand}">Brand</td>
               <td th:text="${product.price}">Price</td>
-<!--              <td>-->
-<!--                <a href="#" class="btn btn-primary btn-xs purple editView" title="Edit" th:href="@{'/product/edit/' + ${product.id}}"><i class="fa fa-edit"></i> Edit</a>-->
-<!--                <a href="#" class="btn btn-danger btn-xs purple deleteView" title="Delete" th:href="@{'/product/delete/' + ${product.id}}"><i class="fa fa-trash-o"></i> Delete</a>-->
-<!--              </td>-->
+              <td>
+                <a href="#" class="btn btn-danger btn-xs purple deleteView" title="Delete" th:href="@{'/product/delete/' + ${product.id}}">Delete</a>
+              </td>
             </tr>
             </tbody>
           </table>
