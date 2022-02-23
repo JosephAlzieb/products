@@ -37,4 +37,29 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf(c -> c.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .logout(l -> l.logoutSuccessUrl("/").permitAll()).oauth2Login();
     }
+
+    @Bean
+    OAuth2UserService<OAuth2UserRequest, OAuth2User> createUserService() {
+        DefaultOAuth2UserService defaultService = new DefaultOAuth2UserService();
+        return userRequest -> {
+            OAuth2User oauth2User = defaultService.loadUser(userRequest);
+
+            var attributes = oauth2User.getAttributes(); //keep existing attributes
+
+            var authorities = new HashSet<GrantedAuthority>();
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+
+            String login = attributes.get("login").toString();
+            System.out.printf("USER LOGIN: %s%n", login);
+
+            if (admins.contains(login)) {
+                System.out.printf("GRANTING ADMIN PRIVILEGES TO USER %s%n", login);
+                authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            } else {
+                System.out.printf("DENYING ADMIN PRIVILEGES TO USER %s%n", login);
+            }
+
+            return new DefaultOAuth2User(authorities, attributes, "login");
+        };
+    }
 }
