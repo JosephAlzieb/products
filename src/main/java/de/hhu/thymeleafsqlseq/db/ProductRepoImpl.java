@@ -35,6 +35,11 @@ public class ProductRepoImpl implements ProductRepository {
         return repoDau.findAll().stream().map(dto -> getPoduct(dto)).collect(Collectors.toList());
     }
 
+    @Override
+    public void deleteProduct(Long id) {
+        repoDau.deleteById(id);
+    }
+
     private ProductDto getDto(Product product) {
         return new ProductDto(null, product.getBrand(), product.getPrice(), product.getIsDeleted(), product.getName(), product.getProductType());
     }
