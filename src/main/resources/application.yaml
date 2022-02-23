@@ -19,5 +19,4 @@ spring:
 
 products:
   rollen:
-    admin:
-#  JosephAlzieb
+    admin: JosephAlzieb
