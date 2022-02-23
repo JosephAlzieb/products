@@ -17,3 +17,6 @@ spring:
             client-id: ${CLIENT_ID}
             client-secret: ${CLIENT_SECRET}
 
+products:
+  rollen:
+    admin: JosephAlzieb
