@@ -2,7 +2,7 @@
 
 ### System, um Produkte zu registrieren, und zu verwalten
 
-##### in dem unten angehängten Vedio könnte man schauen, was das System zu diesem Zeitpunk so machen kann :) 
+##### in dem unten angehängten Video könnte man schauen, was das System zu diesem Zeitpunk so machen kann :) 
 ##### Die Anwendung Ist immer noch in Entwicklungsprozess ....
 
 ___
