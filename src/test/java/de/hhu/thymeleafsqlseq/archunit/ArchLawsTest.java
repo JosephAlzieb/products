@@ -19,6 +19,4 @@ public class ArchLawsTest {
             .should()
             .notBeAnnotatedWith(Controller.class);
 
-    @ArchTest
-    static final ArchRule No_FIELD_INJECTION = GeneralCodingRules.NO_CLASSES_SHOULD_USE_FIELD_INJECTION;
 }
